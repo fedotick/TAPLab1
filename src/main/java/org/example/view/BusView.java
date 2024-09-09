@@ -1,5 +1,8 @@
 package org.example.view;
 
+import org.example.controller.BusController;
+import org.example.model.Bus;
+
 import java.util.List;
 import java.util.Scanner;
 
