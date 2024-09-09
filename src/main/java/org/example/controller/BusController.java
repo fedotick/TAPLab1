@@ -10,7 +10,7 @@ public class BusController {
     private final BusService busService;
 
     public BusController() {
-        this.busService = BusService.getInstance();
+        this.busService = new BusService();
     }
 
     public List<Bus> getAll() {

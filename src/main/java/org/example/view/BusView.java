@@ -72,7 +72,7 @@ public class BusView {
 
     private void showBusesByOperationPeriod() {
         System.out.print("\nEnter operation period: ");
-        Integer operationPeriod = (Integer) scanner.nextInt();
+        Integer operationPeriod = scanner.nextInt();
         scanner.nextLine();
 
         List<Bus> buses = busController.getAllByOperationPeriod(operationPeriod);
@@ -82,7 +82,7 @@ public class BusView {
 
     private void showBusesWithMileageGreaterThan() {
         System.out.print("\nEnter mileage greater than specified distance: ");
-        Float specifiedDistance = (Float) scanner.nextFloat();
+        Float specifiedDistance = scanner.nextFloat();
         scanner.nextLine();
 
         List<Bus> buses = busController.getAllWithMileageGreaterThan(specifiedDistance);

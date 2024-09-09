@@ -1,54 +1,36 @@
 package org.example.service;
 
 import org.example.model.Bus;
+import org.example.repository.BusRepository;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BusService {
 
-    private static BusService instance;
+    private final BusRepository busRepository;
 
-    private final List<Bus> buses;
-
-    private BusService() {
-        buses = new ArrayList<>();
-    }
-
-    public static synchronized BusService getInstance() {
-        if (instance == null) {
-            instance = new BusService();
-        }
-        return instance;
+    public BusService() {
+        busRepository = BusRepository.getInstance();
     }
 
     public void createBuses(List<Bus> newBuses) {
-        buses.addAll(newBuses);
+        busRepository.createBuses(newBuses);
     }
 
     public List<Bus> findAll() {
-        return buses;
+        return busRepository.findAll();
     }
 
     public List<Bus> findAllByRouteNumber(String routeNumber) {
-        return buses.stream()
-                .filter(bus -> bus.getRouteNumber().equals(routeNumber))
-                .toList();
+        return busRepository.findAllByRouteNumber(routeNumber);
     }
 
     public List<Bus> findAllByOperationPeriod(Integer operationPeriod) {
-        int currentYear = LocalDate.now().getYear();
-
-        return buses.stream()
-                .filter(bus -> operationPeriod < currentYear - bus.getYearOfStartOfOperation())
-                .toList();
+        return busRepository.findAllByOperationPeriod(operationPeriod);
     }
 
     public List<Bus> findAllWithMileageGreaterThan(Float specifiedDistance) {
-        return buses.stream()
-                .filter(bus -> specifiedDistance < bus.getMileage())
-                .toList();
+        return busRepository.findAllWithMileageGreaterThan(specifiedDistance);
     }
 
 }

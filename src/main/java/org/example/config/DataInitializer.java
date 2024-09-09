@@ -7,14 +7,9 @@ import java.util.List;
 
 public class DataInitializer {
 
-    private final BusService busService;
+    private static final BusService busService = new BusService();
 
-    public DataInitializer() {
-        busService = BusService.getInstance();
-
-    }
-
-    public void initialize() {
+    public static void initialize() {
         List<Bus> newBuses = getSampleBusData();
 
         busService.createBuses(newBuses);
@@ -22,11 +17,36 @@ public class DataInitializer {
 
     private static List<Bus> getSampleBusData() {
         return List.of(
-                new Bus("Name 1", "Number 1", "Route 1", "Brand 1", 2005, 110000F),
-                new Bus("Name 2", "Number 2", "Route 2", "Brand 2", 2004, 120000F),
-                new Bus("Name 3", "Number 3", "Route 3", "Brand 2", 2003, 140000F),
-                new Bus("Name 4", "Number 4", "Route 3", "Brand 3", 2002, 150000F),
-                new Bus("Name 5", "Number 5", "Route 5", "Brand 3", 2001, 160000F)
+                new Bus.Builder("Brand 1", 2005)
+                        .setDriverName("Name 1")
+                        .setBusNumber("Number 1")
+                        .setRouteNumber("Route 1")
+                        .setMileage(110000F)
+                        .build(),
+                new Bus.Builder("Brand 2", 2004)
+                        .setDriverName("Name 2")
+                        .setBusNumber("Number 2")
+                        .setRouteNumber("Route 2")
+                        .setMileage(120000F)
+                        .build(),
+                new Bus.Builder("Brand 2", 2003)
+                        .setDriverName("Name 3")
+                        .setBusNumber("Number 3")
+                        .setRouteNumber("Route 3")
+                        .setMileage(140000F)
+                        .build(),
+                new Bus.Builder("Brand 3", 2002)
+                        .setDriverName("Name 4")
+                        .setBusNumber("Number 4")
+                        .setRouteNumber("Route 3")
+                        .setMileage(150000F)
+                        .build(),
+                new Bus.Builder("Brand 3", 2001)
+                        .setDriverName("Name 5")
+                        .setBusNumber("Number 5")
+                        .setRouteNumber("Route 5")
+                        .setMileage(160000F)
+                        .build()
         );
     }
 
