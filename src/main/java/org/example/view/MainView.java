@@ -8,7 +8,7 @@ public class MainView {
 
     private static final BusView busView = new BusView();
 
-    public static void run() {
+    public static void run() { //TODO: метод run() обрабатывает как основной интерфейс, так и инициализацию данных. Лучше было бы разделить этот функционал: инициализация данных должна быть вынесена в отдельный класс или метод.
         new DataInitializer().initialize();
 
         Scanner scanner = new Scanner(System.in);

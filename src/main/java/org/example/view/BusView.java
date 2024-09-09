@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BusView {
-
+    //TODO:можно рассмотреть использование шаблона проектирования, такого как Template Method, чтобы упростить повторяющиеся структуры в работе с BusView.
     private final Scanner scanner;
     private final BusController busController ;
 

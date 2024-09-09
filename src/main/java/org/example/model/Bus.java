@@ -8,7 +8,8 @@ public class Bus implements Cloneable, Comparable<Bus>, Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
-
+    //TODO:Можно рассмотреть возможность вынесения строковых литералов, используемых в логике программы, в final static переменные для облегчения изменения и локализации.
+    //TODO:Возможно, следует рассмотреть использование неизменяемых объектов (final) для полей класса, которые не должны изменяться после инициализации.
     private String name;
     private String busNumber;
     private String routeNumber;
@@ -16,6 +17,7 @@ public class Bus implements Cloneable, Comparable<Bus>, Serializable {
     private Integer yearOfStartOfOperation;
     private Float mileage;
 
+    //TODO:В конструкторе класса Bus передаётся множество параметров. Возможно, стоит рассмотреть паттерн проектирования "Builder" для создания объектов Bus и улучшения читаемости кода.
     public Bus(String name, String busNumber, String routeNumber, String brand, int yearOfStartOfOperation, float mileage) {
         this.name = name;
         this.busNumber = busNumber;
